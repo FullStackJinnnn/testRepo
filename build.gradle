@@ -1,0 +1,53 @@
+plugins {
+id 'java'
+id 'war'
+id 'org.springframework.boot' version '3.2.3'
+id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'infinitystone'
+version = '0.0.1-SNAPSHOT'
+
+java {
+sourceCompatibility = '17'
+}
+
+configurations {
+compileOnly {
+extendsFrom annotationProcessor
+}
+}
+
+repositories {
+mavenCentral()
+}
+
+dependencies {
+implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+implementation 'org.springframework.boot:spring-boot-starter-web'
+compileOnly 'org.projectlombok:lombok'
+annotationProcessor 'org.projectlombok:lombok'
+providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+testImplementation 'org.springframework.boot:spring-boot-starter-test'
+implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+implementation 'jakarta.servlet:jakarta.servlet-api'
+implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
+implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
+implementation 'mysql:mysql-connector-java:8.0.32'
+implementation 'net.nurigo:javaSDK:2.2'
+implementation 'org.springframework.boot:spring-boot-starter-websocket'
+implementation 'com.google.code.gson:gson:2.8.8'
+implementation 'org.springframework.boot:spring-boot-starter-security'
+implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+runtimeOnly 'com.mysql:mysql-connector-j'
+implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+compileOnly "org.springframework.boot:spring-boot-starter-security"
+implementation 'com.google.code.gson:gson:2.8.8'
+implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+}
+
+tasks.named('test') {
+useJUnitPlatform()
+}
